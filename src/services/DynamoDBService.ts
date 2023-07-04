@@ -1,17 +1,17 @@
 var mysql = require("mysql");
 
 const database = {
-  host: bd_host,
-  user: bd_user,
-  password: bd_password,
-  database: bd_database,
+  host: "host",
+  user: "user",
+  password: "password",
+  database: "database",
 };
 
 var connection = mysql.createPool(database);
 
-const customQuery = (sqlQuery) => {
+const customQuery = (sqlQuery: any) => {
   return new Promise((resolve, reject) => {
-    connection.query(sqlQuery, (err, result) => {
+    connection.query(sqlQuery, (err: any, result: unknown) => {
       if (err) {
         reject(err);
       } else resolve(result);
